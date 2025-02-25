@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using TechLibrary.Communication.Requests;
 
-namespace TechLibrary.Api.UseCases.Users.Register
+namespace TechLibrary.API.UseCases.Users.Register
 {
     public class RegisterUserValidator : AbstractValidator<RequestUserJson>
 
