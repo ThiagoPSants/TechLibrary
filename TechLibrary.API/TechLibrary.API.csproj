@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -12,17 +12,15 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.2" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.7.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="7.2.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.7.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TechLibrary.Communication\TechLibrary.Communication.csproj" />
     <ProjectReference Include="..\TechLibrary.Exception\TechLibrary.Exception.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infraestrutura\DataAccess\" />
   </ItemGroup>
 
 </Project>

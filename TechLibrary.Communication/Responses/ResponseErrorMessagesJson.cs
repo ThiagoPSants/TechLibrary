@@ -2,7 +2,7 @@
 {
    public class ResponseErrorMessagesJson
     {
-        public List<String> Errros { get; set; } = [];
+        public List<String> Errors { get; set; } = [];
 
     }
 }

@@ -1,8 +1,9 @@
 ﻿using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using TechLibrary.Api.Domain.Entities;
-using TechLibrary.Api.Infraestrutura;
+using TechLibrary.API.Infraestrutura.DataAccess;
 using TechLibrary.API.Infraestrutura.Security.Cryptography;
+using TechLibrary.API.Infraestrutura.Security.Tokens.Access;
 using TechLibrary.API.UseCases.Users.Register;
 using TechLibrary.Communication.Requests;
 using TechLibrary.Communication.Responses;
@@ -30,9 +31,13 @@ namespace TechLibrary.Api.UseCases.Users.Register
             dbContext.Users.Add(entity);
             dbContext.SaveChanges();
 
+            var tokenGenerator = new JwtTokenGeneretor();
+
             return new ResponseRegisteredUserJson
             {
                 Nome=entity.Nome,
+                AccessToken= tokenGenerator.Generate(entity)
+
             };
         }
         private void Validate(RequestUserJson request,TechLibraryDbContext dbContext)
@@ -50,7 +55,7 @@ namespace TechLibrary.Api.UseCases.Users.Register
             {
                 var errorMessages = result.Errors.Select(error=> error.ErrorMessage).ToList();
 
-                throw new ErrorOnValidatioException(errorMessages);
+                throw new ErrorOnValidationException(errorMessages);
             }
         }
     }
