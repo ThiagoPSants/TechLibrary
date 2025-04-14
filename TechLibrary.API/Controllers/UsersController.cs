@@ -43,7 +43,7 @@ namespace TechLibrary.Api.Controllers
 
         }
 
-        [HttpPost("ThiagoTeste")]
+        [HttpPost("Noname")]
         public IActionResult Create2()
         {
             return Created();
